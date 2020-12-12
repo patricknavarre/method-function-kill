@@ -26,8 +26,24 @@ const Person = function (newFirstName, newLastName, newAge = 0, newMarried = fal
     },
 
     getFullName: function() {
-      return `${this.firstName}` `${this.lastName}`
+      return `${this.firstName} ${this.lastName}`
     },
+
+    marry: function(person) {
+      this.married = true
+      person.married = true
+      this.spouseName = person.getFullName()
+      person.spouseName = this.getFullName()
+    },
+
+    divorce: function(person) {
+      this.married = false
+      person.married = false 
+      delete this.spouseName
+      delete person.spouseName
+    }
+
+
 
 
 
